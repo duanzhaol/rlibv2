@@ -1,4 +1,4 @@
-# Installing RLib
+`# Installing RLib
 
 This document provides install guide for how to run `RLib`' examples and benchmarks.
 Actually there is nothing to install about RLib itself because it is a header-only library :). 
@@ -11,6 +11,7 @@ Actually there is nothing to install about RLib itself because it is a header-on
 
 <br>
 <a name="dl"></a>
+
 ## Preparing and Downloading
 
 You can download rlib directly from the Github Repository. If you are one of developers, it is recommended to **fork** your own repository and develop on it afterwards.
@@ -22,6 +23,7 @@ $cd rib
 
 <br>
 <a name="deps"></a>
+
 ## Satisfying Dependences
 
 #### Install RLib dependecies on one of your cluster machines
@@ -69,6 +71,7 @@ $./sync_to_server.sh
 
 <br>
 <a name="run"></a>
+
 ## Building and Running
 
 #### Compile rlib from remote

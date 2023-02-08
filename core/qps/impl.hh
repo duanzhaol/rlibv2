@@ -162,43 +162,43 @@ public:
     return Ok(std::make_pair(srq, std::string("")));
   }
 
-  using CreateDCTRes_t = Result<std::pair<ibv_exp_dct *, std::string>>;
-  static CreateDCTRes_t create_dct(Arc<RNic> nic,
-                                   ibv_cq *cq, ibv_srq *srq,
-                                   int dc_key)
-  {
-    if (cq == nullptr) {
-      return Err(std::make_pair<ibv_exp_dct *, std::string>(nullptr,
-                                                       "CQ passed in as null"));
-    }
-
-    if (srq == nullptr) {
-      return Err(std::make_pair<ibv_exp_dct *, std::string>(nullptr,
-                                                       "SRQ passed in as null"));
-    }
-
-    struct ibv_exp_dct_init_attr dctattr;
-    memset((void *)&dctattr, 0, sizeof(dctattr));
-    dctattr.pd = nic->get_pd();
-    dctattr.cq = cq;
-    dctattr.srq = srq;
-    dctattr.dc_key = dc_key;
-    dctattr.port = 1;
-    dctattr.access_flags = IBV_ACCESS_REMOTE_WRITE | IBV_ACCESS_REMOTE_READ;
-    dctattr.min_rnr_timer = 2;
-    dctattr.tclass = 0;
-    dctattr.flow_label = 0;
-    dctattr.mtu = IBV_MTU_4096;
-    dctattr.pkey_index = 0;
-    dctattr.hop_limit = 1;
-    dctattr.create_flags = 0;
-    dctattr.inline_size = 60;
-    auto dct = ibv_exp_create_dct(nic->get_ctx(), &dctattr);
-    if (dct == nullptr) {
-      return Err(std::make_pair(dct, std::string(strerror(errno))));
-    }
-    return Ok(std::make_pair(dct, std::string("")));
-  }
+//  //using CreateDCTRes_t = Result<std::pair<ibv_exp_dct *, std::string>>;
+//  static CreateDCTRes_t create_dct(Arc<RNic> nic,
+//                                   ibv_cq *cq, ibv_srq *srq,
+//                                   int dc_key)
+//  {
+//    if (cq == nullptr) {
+//      return Err(std::make_pair<ibv_exp_dct *, std::string>(nullptr,
+//                                                       "CQ passed in as null"));
+//    }
+//
+//    if (srq == nullptr) {
+//      return Err(std::make_pair<ibv_exp_dct *, std::string>(nullptr,
+//                                                       "SRQ passed in as null"));
+//    }
+//
+//    struct ibv_exp_dct_init_attr dctattr;
+//    memset((void *)&dctattr, 0, sizeof(dctattr));
+//    dctattr.pd = nic->get_pd();
+//    dctattr.cq = cq;
+//    dctattr.srq = srq;
+//    dctattr.dc_key = dc_key;
+//    dctattr.port = 1;
+//    dctattr.access_flags = IBV_ACCESS_REMOTE_WRITE | IBV_ACCESS_REMOTE_READ;
+//    dctattr.min_rnr_timer = 2;
+//    dctattr.tclass = 0;
+//    dctattr.flow_label = 0;
+//    dctattr.mtu = IBV_MTU_4096;
+//    dctattr.pkey_index = 0;
+//    dctattr.hop_limit = 1;
+//    dctattr.create_flags = 0;
+//    dctattr.inline_size = 60;
+//    auto dct = ibv_exp_create_dct(nic->get_ctx(), &dctattr);
+//    if (dct == nullptr) {
+//      return Err(std::make_pair(dct, std::string(strerror(errno))));
+//    }
+//    return Ok(std::make_pair(dct, std::string("")));
+//  }
 
   using CreateQPEXRes_t = Result<std::pair<ibv_qp *, std::string>>;
   static CreateQPEXRes_t create_qp_ex(Arc<RNic> nic, const QPConfig &config,
@@ -218,7 +218,7 @@ public:
     qp_init_attr.cap.max_send_wr = config.max_send_sz();
     qp_init_attr.cap.max_send_sge = 1;
     qp_init_attr.cap.max_inline_data = kMaxInlinSz;
-    qp_init_attr.qp_type = IBV_EXP_QPT_DC_INI;
+    //qp_init_attr.qp_type = IBV_EXP_QPT_DC_INI;
     qp_init_attr.pd = nic->get_pd();
     qp_init_attr.comp_mask = IBV_QP_INIT_ATTR_PD;
 

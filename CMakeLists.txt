@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8)
 
-add_definitions(-std=c++14)
+add_definitions(-std=c++17)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_CXX_COMPILER /usr/bin/g++)

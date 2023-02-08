@@ -356,8 +356,8 @@ def main():
 
     passes = config.get("pass",[])
 
-    user = config.get("user","wxd")
-    pwd  = config.get("pwd","123")
+    user = config.get("user","duan")
+    pwd  = config.get("pwd","991127")
     passp = config.get("passphrase",None)
     global_configs = config.get("global_configs","")
 
