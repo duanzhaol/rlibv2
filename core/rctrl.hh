@@ -52,10 +52,6 @@ public:
     RDMA_ASSERT(rpc.register_handler(
         proto::FetchQPAttr,
         std::bind(&RCtrl::fetch_qp_attr_wrapper, this, std::placeholders::_1)));
-//
-//    RDMA_ASSERT(rpc.register_handler(
-//        proto::FetchDCAttr,
-//        std::bind(&RCtrl::fetch_dc_attr_wrapper, this, std::placeholders::_1)));
   }
 
   ~RCtrl() {
@@ -175,18 +171,6 @@ public:
     return ::rdmaio::Marshal::dump<proto::RCReply>(
         {.status = proto::CallbackStatus::NotFound});
   }
-
-//  ByteBuffer fetch_dc_attr(const proto::RCReq &req, const u64 &key) {
-//    auto dc = registered_dcs.query(req.name);
-//    if (dc) {
-//      return ::rdmaio::Marshal::dump<proto::DCReply>(
-//          {.status = proto::CallbackStatus::Ok,
-//           .attr = dc.value()->remote_dct_attr,
-//           .key = key});
-//    }
-//    return ::rdmaio::Marshal::dump<proto::DCReply>(
-//        {.status = proto::CallbackStatus::NotFound});
-//  }
 
 private:
   /*!

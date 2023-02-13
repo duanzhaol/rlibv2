@@ -2,11 +2,11 @@
 
 #include "../../core/lib.hh"
 
-DEFINE_int64(port, 8888, "Server listener (UDP) port.");
+DEFINE_int64(port, 38888, "Server listener (UDP) port.");
 DEFINE_int64(use_nic_idx, 0, "Which NIC to create QP");
 DEFINE_int64(reg_nic_name, 73, "The name to register an opened NIC at rctrl.");
 DEFINE_int64(reg_mem_name, 73, "The name to register an MR at rctrl.");
-DEFINE_uint64(magic_num, 0xdeadbeaf, "The magic number read by the client");
+DEFINE_uint64(magic_num, 0xddddbeaf, "The magic number read by the client");
 
 using namespace rdmaio;
 using namespace rdmaio::rmem;
@@ -52,7 +52,7 @@ int main(int argc, char **argv) {
 
   RDMA_LOG(2) << "RC pingpong server started!";
   // run for 20 seconds
-  for (uint i = 0;i < 20; ++i) {
+  for (uint i = 0;i < 100; ++i) {
     // server does nothing because it is RDMA
     // client will read the reg_mem using RDMA
     sleep(1);

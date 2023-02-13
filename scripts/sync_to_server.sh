@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # this script will sync the project to the remote server
 
-user="wjq"
-target=("val08" "val09")
+user="duan"
+target=("192.168.1.129")
 
 for machine in ${target[*]}
 do

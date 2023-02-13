@@ -3,7 +3,7 @@
 #include "../../core/lib.hh"
 #include "../../core/qps/recv_iter.hh"
 
-DEFINE_int64(port, 8888, "Server listener (UDP) port.");
+DEFINE_int64(port, 38888, "Server listener (UDP) port.");
 DEFINE_int64(use_nic_idx, 0, "Which NIC to create QP");
 DEFINE_int64(reg_mem_name, 73, "The name to register an MR at rctrl.");
 
@@ -43,7 +43,7 @@ int main(int argc, char **argv) {
   gflags::ParseCommandLineFlags(&argc, &argv, true);
 
   RCtrl ctrl(FLAGS_port);
-  RDMA_LOG(4) << "(UD) Pingping server listenes at localhost:" << FLAGS_port;
+  RDMA_LOG(4) << "(UD) Pingping server listenes at localhost1:" << FLAGS_port;
 
   // first we open the NIC
   auto nic =

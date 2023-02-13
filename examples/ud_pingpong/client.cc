@@ -9,7 +9,7 @@ using namespace rdmaio;
 using namespace rdmaio::qp;
 using namespace rdmaio::rmem;
 
-DEFINE_string(addr, "localhost:8888", "Server address to connect to.");
+DEFINE_string(addr, "192.168.1.129:38888", "Server address to connect to.");
 DEFINE_int64(use_nic_idx, 0, "Which NIC to create QP");
 
 int main(int argc, char **argv) {

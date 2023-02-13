@@ -124,8 +124,7 @@ public:
     return std::string(ibv_wc_status_str(wc.status));
   }
 
-  /*!
-    do a loop to poll one completion from the send_cq.
+  /*!    do a loop to poll one completion from the send_cq.
     \note timeout is measured in microseconds
    */
   Result<ibv_wc> wait_one_comp(const double &timeout = ::rdmaio::Timer::no_timeout()) {
